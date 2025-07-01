@@ -1,0 +1,36 @@
+body{
+    background-color: gray;
+}
+*{
+    overflow: hidden;
+}
+#clock-h1{
+    font-size: calc(20px + 10vw);
+    line-height: 160vh;
+}
+p{
+    text-align: center;
+    font-size: calc(8px + 2vw);
+}
+.buttons{
+    margin-top: 40px;
+    width: calc(10px + 25vw);
+    margin-left: 5px;
+    height: 150px;
+    margin-bottom: calc(50px+10vh);
+    background-color: darkgray;
+    border: 10px solid black;
+    border-radius: 10px;
+}
+#resume-pause-button{
+    margin-top: 220px;
+}
+#resume-pause-button:hover{
+    text-shadow: 10px 10px 50px black;
+    box-shadow: 35px 15px 100px 5px black;
+}
+.buttons:hover{
+    text-decoration: underline;
+        text-decoration-thickness: 5px;
+        text-decoration-color: black;
+}
