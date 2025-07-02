@@ -1,6 +1,9 @@
 body{
     background-color: gray;
 }
+.changeblack{
+    background-color: black;
+}
 *{
     overflow: hidden;
 }
@@ -18,8 +21,20 @@ p{
     margin-left: 5px;
     height: 150px;
     margin-bottom: calc(50px+10vh);
-    background-color: darkgray;
+    background-color: #808080;
+    color: black;
     border: 10px solid black;
+    border-radius: 10px;
+}
+.changebuttons{
+    margin-top: 40px;
+    width: calc(10px + 25vw);
+    margin-left: 5px;
+    height: 150px;
+    margin-bottom: calc(50px+10vh);
+    color:#212529;
+    background-color: black;
+    border: 10px solid #212529;
     border-radius: 10px;
 }
 #resume-pause-button{

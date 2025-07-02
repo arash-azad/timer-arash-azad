@@ -4,11 +4,26 @@ let secend=0;
 let minute=0;
 let hour=0;
 
+
+function changeAllButtonsClass(toNew) {
+    document.querySelectorAll('button').forEach(btn => {
+      if (toNew) {
+        btn.classList.replace('buttons', 'changebuttons');
+      } else {
+        btn.classList.replace('changebuttons', 'buttons');
+      }
+    });
+  }
+
+
+
 let isstarted=false;
 buttontoggle.addEventListener('click',function(){
     if(!isstarted){
         clearInterval(clock1);
         isstarted=true;
+        document.body.classList.add('changeblack')
+        changeAllButtonsClass(true);
     }
     else{
         clock1=setInterval(function(){
@@ -41,8 +56,11 @@ buttontoggle.addEventListener('click',function(){
             console.log(hour,minute,secend)
             },1000 );
             isstarted=false;
+            document.body.classList.remove('changeblack')
+            changeAllButtonsClass(false);
     }
 })
+
 
 let clock1=setInterval(function(){
 secend++;
@@ -80,75 +98,87 @@ resetbutton.addEventListener("click",function(){
     minute=0;
     secend=0;
     hour=0;
-    clock1=setInterval(function(){
-        secend++;
-        if(secend==60){
-            secend=0;
-            minute++;
-            if(minute<10){
-                minute="0"+minute;
+    counter.innerHTML = `00:00:00`;
+    if(!isstarted){
+        clock1=setInterval(function(){
+            secend++;
+            if(secend==60){
+                secend=0;
+                minute++;
+                if(minute<10){
+                    minute="0"+minute;
+                }
             }
-        }
-        if(minute==60){
-            minute=0;
-            hour++;
-            if(hour<10){
-                hour="0"+hour;
+            if(minute==60){
+                minute=0;
+                hour++;
+                if(hour<10){
+                    hour="0"+hour;
+                }
             }
-        }
-        if(secend<10){
-            secend="0"+secend;
-        }
-        if(minute==0){
-            minute="00"
-        }
-        if(hour==0){
-            hour="00"
-        }
-        counter.innerHTML= `${hour}:${minute}:${secend}`;
-        
-        console.log(hour,minute,secend)
-        },1000 );
+            if(secend<10){
+                secend="0"+secend;
+            }
+            if(minute==0){
+                minute="00"
+            }
+            if(hour==0){
+                hour="00"
+            }
+            counter.innerHTML= `${hour}:${minute}:${secend}`;
+            
+            console.log(hour,minute,secend)
+            },1000 );
+    }
+    else{
+        isstarted = true; 
+    }
 })
 
 let pausebutton=document.getElementById("pause-button")
 pausebutton.addEventListener("click",function(){
    clearInterval(clock1);
    isstarted=true;
-
+   document.body.classList.add('changeblack')
+   changeAllButtonsClass(true);
 })
 
 let resumebutton=document.getElementById("resume-button")
 resumebutton.addEventListener("click",function(){
-    clock1=setInterval(function(){
-        secend++;
-        if(secend==60){
-            secend=0;
-            minute++;
-            if(minute<10){
-                minute="0"+minute;
+    if(isstarted==true){
+
+        clock1=setInterval(function(){
+            secend++;
+            if(secend==60){
+                secend=0;
+                minute++;
+                if(minute<10){
+                    minute="0"+minute;
+                }
             }
-        }
-        if(minute==60){
-            minute=0;
-            hour++;
-            if(hour<10){
-                hour="0"+hour;
+            if(minute==60){
+                minute=0;
+                hour++;
+                if(hour<10){
+                    hour="0"+hour;
+                }
             }
-        }
-        if(secend<10){
-            secend="0"+secend;
-        }
-        if(minute==0){
-            minute="00"
-        }
-        if(hour==0){
-            hour="00"
-        }
-        counter.innerHTML= `${hour}:${minute}:${secend}`;
-        
-        console.log(hour,minute,secend)
-        },1000 );
-        isstarted=false;
+            if(secend<10){
+                secend="0"+secend;
+            }
+            if(minute==0){
+                minute="00"
+            }
+            if(hour==0){
+                hour="00"
+            }
+            counter.innerHTML= `${hour}:${minute}:${secend}`;
+            
+            console.log(hour,minute,secend)
+            },1000 );
+            isstarted=false;
+            document.body.classList.remove('changeblack')
+            changeAllButtonsClass(false);
+    }
 
 })
