@@ -4,6 +4,8 @@ let secend=0;
 let minute=0;
 let hour=0;
 
+let welcome=document.getElementById("welcomeid");
+let welcomebtn=document.getElementById("welcomebtnid");
 
 function changeAllButtonsClass(toNew) {
     document.querySelectorAll('button').forEach(btn => {
@@ -182,3 +184,14 @@ resumebutton.addEventListener("click",function(){
     }
 
 })
+welcomebtn.addEventListener('click',function(){
+    welcome.classList.remove('welcome');
+    welcome.classList.add('hidden');
+  
+    welcomebtn.classList.remove('welcome');
+    welcomebtn.classList.add('hidden');
+    
+    setTimeout(() => {
+    welcome.style.display = "none";
+  }, 1002);
+  });
