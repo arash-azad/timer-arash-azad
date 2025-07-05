@@ -32,7 +32,7 @@ body{
     opacity: 0;
     animation: welcome 2s linear 1;
     transform: scale(0.7);
-    font-size: calc(25px + 7vw);
+    font-size: calc(10px + 7vw);
     text-align: center;
     /* text-shadow: 10px 10px 50px black; */
     transition: all ease 2s;
